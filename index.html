@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PawsCare | Pet Care Appointment Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">🐾 PawsCare Portal</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="dashboard.html">Pet Owner Portal</a>
+      <a href="admin.html">Provider & Admin</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section class="hero">
+      <h1>Trusted Care for Your Best Friend</h1>
+      <p>Connect with verified veterinarians, professional groomers, and certified trainers. Manage pet profiles, book appointments, and track service history in one place.</p>
+      <a href="dashboard.html" class="btn btn-success">Book an Appointment</a>
+    </section>
+
+    <h2 class="section-title">Our Pet Care Services</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge badge-vet">Veterinarian</span>
+        <h3 style="margin-top: 0.6rem;">Health & Vaccinations</h3>
+        <p style="color: var(--muted);">Routine checkups, emergency consultations, vaccinations, and preventive care with experienced vets.</p>
+      </div>
+      <div class="card">
+        <span class="badge badge-groomer">Groomer</span>
+        <h3 style="margin-top: 0.6rem;">Spa & Grooming</h3>
+        <p style="color: var(--muted);">Hygienic baths, breed-specific haircuts, nail trimming, and coat conditioning for happy pets.</p>
+      </div>
+      <div class="card">
+        <span class="badge badge-trainer">Trainer</span>
+        <h3 style="margin-top: 0.6rem;">Behavioral Training</h3>
+        <p style="color: var(--muted);">Basic obedience, puppy socialization, and agility sessions tailored to your pet's temperament.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Quick Portal Access / User Registration</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Pet Owner Login / Register</h3>
+        <p style="color: var(--muted); margin-bottom: 1rem;">Register your details to manage pet profiles and schedule appointments.</p>
+        <form id="ownerLoginForm">
+          <div class="form-group">
+            <label for="ownerName">Your Full Name</label>
+            <input type="text" id="ownerName" placeholder="e.g., Vivek Singh" required />
+          </div>
+          <div class="form-group">
+            <label for="ownerEmail">Email Address</label>
+            <input type="email" id="ownerEmail" placeholder="e.g., vivek@example.com" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Enter Pet Owner Dashboard</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Service Provider & Admin Access</h3>
+        <p style="color: var(--muted); margin-bottom: 1rem;">Manage provider profiles, service listings, schedules, and incoming appointment requests.</p>
+        <ul style="margin-left: 1.2rem; margin-bottom: 1.5rem; color: var(--muted);">
+          <li>Approve or update appointment statuses</li>
+          <li>Add new veterinarians, groomers, or trainers</li>
+          <li>Monitor pet records and booking analytics</li>
+        </ul>
+        <a href="admin.html" class="btn btn-outline">Open Provider / Admin Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 PawsCare Pet Care Appointment Portal | All Rights Reserved
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

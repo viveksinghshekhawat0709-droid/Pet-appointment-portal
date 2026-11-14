@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Provider & Admin Dashboard | PawsCare</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">🐾 PawsCare Portal</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Pet Owner Portal</a>
+      <a href="admin.html" class="active">Provider & Admin</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Provider & Admin Dashboard</h1>
+    <p style="color: var(--muted);">Manage service listings, provider schedules, and incoming pet care appointments.</p>
+
+    <!-- Summary Stats -->
+    <div class="grid" style="margin-top: 1.5rem;">
+      <div class="card">
+        <p style="color: var(--muted); font-size: 0.9rem;">Total Registered Pets</p>
+        <h2 id="statPets" style="font-size: 2rem; color: var(--primary);">0</h2>
+      </div>
+      <div class="card">
+        <p style="color: var(--muted); font-size: 0.9rem;">Pending Requests</p>
+        <h2 id="statPending" style="font-size: 2rem; color: var(--warning);">0</h2>
+      </div>
+      <div class="card">
+        <p style="color: var(--muted); font-size: 0.9rem;">Confirmed / Completed</p>
+        <h2 id="statConfirmed" style="font-size: 2rem; color: var(--secondary);">0</h2>
+      </div>
+      <div class="card">
+        <p style="color: var(--muted); font-size: 0.9rem;">Active Providers</p>
+        <h2 id="statProviders" style="font-size: 2rem; color: var(--text);">0</h2>
+      </div>
+    </div>
+
+    <!-- Incoming Appointments Management -->
+    <h2 class="section-title">Manage Appointment Requests</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Owner & Pet</th>
+            <th>Provider & Service</th>
+            <th>Schedule</th>
+            <th>Notes</th>
+            <th>Status</th>
+            <th>Manage Status</th>
+          </tr>
+        </thead>
+        <tbody id="adminAppointmentsTable"></tbody>
+      </table>
+    </div>
+
+    <!-- Add New Service Provider -->
+    <h2 class="section-title">Provider Profile & Service Management</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Register New Service Provider</h3>
+        <form id="addProviderForm" style="margin-top: 0.8rem;">
+          <div class="form-group">
+            <label for="provName">Provider / Clinic Name</label>
+            <input type="text" id="provName" placeholder="e.g., Dr. Neha Verma" required />
+          </div>
+          <div class="form-group">
+            <label for="provRole">Category</label>
+            <select id="provRole" required>
+              <option value="Veterinarian">Veterinarian</option>
+              <option value="Groomer">Groomer</option>
+              <option value="Trainer">Trainer</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="provSpecialty">Service Description</label>
+            <input type="text" id="provSpecialty" placeholder="e.g., Dental Care & Surgery" required />
+          </div>
+          <div class="form-group">
+            <label for="provSchedule">Available Hours</label>
+            <input type="text" id="provSchedule" placeholder="e.g., Mon-Sat, 10:00 AM - 5:00 PM" required />
+          </div>
+          <div class="form-group">
+            <label for="provFee">Consultation / Service Fee (₹)</label>
+            <input type="number" id="provFee" min="100" placeholder="e.g., 600" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Add Service Provider</button>
+        </form>
+      </div>
+
+      <div style="grid-column: span 2;">
+        <h3>Active Service Listings</h3>
+        <div id="adminProviderList" class="grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 PawsCare Pet Care Appointment Portal
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

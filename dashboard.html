@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pet Owner Dashboard | PawsCare</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">🐾 PawsCare Portal</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Pet Owner Portal</a>
+      <a href="admin.html">Provider & Admin</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1 id="welcomeHeading">Welcome, Pet Owner!</h1>
+        <p style="color: var(--muted);">Manage your pets, discover service providers, and track your bookings.</p>
+      </div>
+    </div>
+
+    <!-- Reminder & Notification Banner -->
+    <div id="reminderContainer" style="margin-top: 1.2rem;"></div>
+
+    <!-- Section 1: Pet Profile Management -->
+    <h2 class="section-title">1. My Pet Profiles</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Add New Pet Profile</h3>
+        <form id="addPetForm" style="margin-top: 0.8rem;">
+          <div class="form-group">
+            <label for="petName">Pet Name</label>
+            <input type="text" id="petName" placeholder="e.g., Bruno" required />
+          </div>
+          <div class="form-group">
+            <label for="petSpecies">Species</label>
+            <select id="petSpecies" required>
+              <option value="Dog">Dog</option>
+              <option value="Cat">Cat</option>
+              <option value="Bird">Bird</option>
+              <option value="Rabbit">Rabbit</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="petBreed">Breed</label>
+            <input type="text" id="petBreed" placeholder="e.g., Golden Retriever" required />
+          </div>
+          <div class="form-group">
+            <label for="petAge">Age (in years)</label>
+            <input type="number" id="petAge" min="0" max="30" step="0.5" placeholder="e.g., 2" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Save Pet Profile</button>
+        </form>
+      </div>
+
+      <div style="grid-column: span 2;">
+        <h3>Registered Pets</h3>
+        <div id="petList" class="grid"></div>
+      </div>
+    </div>
+
+    <!-- Section 2: Browse Service Providers -->
+    <h2 class="section-title">2. Browse Service Providers & Availability</h2>
+    <div class="filter-bar">
+      <button class="btn btn-primary btn-sm filter-btn" data-role="All">All Services</button>
+      <button class="btn btn-outline btn-sm filter-btn" data-role="Veterinarian">Veterinarians</button>
+      <button class="btn btn-outline btn-sm filter-btn" data-role="Groomer">Groomers</button>
+      <button class="btn btn-outline btn-sm filter-btn" data-role="Trainer">Trainers</button>
+    </div>
+    <div id="providerList" class="grid"></div>
+
+    <!-- Section 3: Book an Appointment -->
+    <h2 class="section-title" id="bookingSection">3. Book an Appointment</h2>
+    <div class="card" style="max-width: 650px;">
+      <form id="bookAppointmentForm">
+        <div class="form-group">
+          <label for="selectPet">Select Your Pet</label>
+          <select id="selectPet" required></select>
+        </div>
+        <div class="form-group">
+          <label for="selectProvider">Select Service Provider</label>
+          <select id="selectProvider" required></select>
+        </div>
+        <div class="grid" style="margin-top: 0; gap: 1rem;">
+          <div class="form-group">
+            <label for="apptDate">Preferred Date</label>
+            <input type="date" id="apptDate" required />
+          </div>
+          <div class="form-group">
+            <label for="apptTime">Time Slot</label>
+            <select id="apptTime" required>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:30 AM">11:30 AM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="04:30 PM">04:30 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apptNotes">Special Notes / Symptoms (Optional)</label>
+          <input type="text" id="apptNotes" placeholder="e.g., Annual rabies vaccination or full grooming" />
+        </div>
+        <button type="submit" class="btn btn-success">Confirm Appointment Request</button>
+      </form>
+    </div>
+
+    <!-- Section 4: Service & Appointment History -->
+    <h2 class="section-title">4. Appointment & Service History</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Pet</th>
+            <th>Provider</th>
+            <th>Service</th>
+            <th>Date & Time</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="ownerAppointmentsTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 PawsCare Pet Care Appointment Portal
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
